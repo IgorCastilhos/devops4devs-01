@@ -14,9 +14,11 @@ jobs:
       - name: "Publicar a imagem no Docker Hub"
         run: echo "Docker push"
   CD:
+    needs: [CI]
     runs-on: ubuntu-latest
     steps:
       - name: Conectar com o Kubernetes
         run: echo "Configuração do Kubeconfig"
       - name: Executar o deploy
         run: echo "Kubectl apply"
+    
